@@ -32,6 +32,84 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Intern_Project.Controllers.BildirimController",
+    "Method": "GetBildiriler",
+    "RelativePath": "api/Bildirim",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Intern_Project.Models.Bildirim, Intern_Project, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.BildirimController",
+    "Method": "AddBildirim",
+    "RelativePath": "api/Bildirim",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bildirim",
+        "Type": "Intern_Project.Models.Bildirim",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Intern_Project.Models.Bildirim",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.BildirimController",
+    "Method": "Delete",
+    "RelativePath": "api/Bildirim/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.KarsilastirmaController",
+    "Method": "Karsilastir",
+    "RelativePath": "api/Karsilastirma",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "parcaIdList",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Intern_Project.Controllers.KategoriController",
     "Method": "GetKategori",
     "RelativePath": "api/Kategori",
@@ -142,7 +220,7 @@
   },
   {
     "ContainingType": "Intern_Project.Controllers.KullaniciController",
-    "Method": "GetKullanicilar",
+    "Method": "GetAll",
     "RelativePath": "api/Kullanici",
     "HttpMethod": "GET",
     "IsController": true,
@@ -162,7 +240,59 @@
   },
   {
     "ContainingType": "Intern_Project.Controllers.KullaniciController",
-    "Method": "PutKullan\u0131c\u0131",
+    "Method": "Create",
+    "RelativePath": "api/Kullanici",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kullanici",
+        "Type": "Intern_Project.Models.Kullanici",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Intern_Project.Models.Kullanici",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.KullaniciController",
+    "Method": "GetById",
+    "RelativePath": "api/Kullanici/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Intern_Project.Models.Kullanici",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.KullaniciController",
+    "Method": "Update",
     "RelativePath": "api/Kullanici/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -183,7 +313,7 @@
   },
   {
     "ContainingType": "Intern_Project.Controllers.KullaniciController",
-    "Method": "DeleteKullanici",
+    "Method": "Delete",
     "RelativePath": "api/Kullanici/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -199,33 +329,17 @@
   },
   {
     "ContainingType": "Intern_Project.Controllers.ParcaController",
-    "Method": "GetParca",
+    "Method": "GetAll",
     "RelativePath": "api/Parca",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Intern_Project.Models.Parca",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "Parameters": [],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Intern_Project.Controllers.ParcaController",
-    "Method": "PostParca",
+    "Method": "Add",
     "RelativePath": "api/Parca",
     "HttpMethod": "POST",
     "IsController": true,
@@ -237,21 +351,27 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Intern_Project.Models.Parca",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Intern_Project.Controllers.ParcaController",
-    "Method": "PutParca",
+    "Method": "GetById",
+    "RelativePath": "api/Parca/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.ParcaController",
+    "Method": "Update",
     "RelativePath": "api/Parca/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -272,8 +392,231 @@
   },
   {
     "ContainingType": "Intern_Project.Controllers.ParcaController",
-    "Method": "DeleteParca",
+    "Method": "Delete",
     "RelativePath": "api/Parca/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.SiparisController",
+    "Method": "GetSiparisler",
+    "RelativePath": "api/Siparis",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Intern_Project.Models.Siparis, Intern_Project, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.SiparisController",
+    "Method": "PostSiparis",
+    "RelativePath": "api/Siparis",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "siparis",
+        "Type": "Intern_Project.Models.Siparis",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Intern_Project.Models.Siparis",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.SiparisController",
+    "Method": "GetSiparis",
+    "RelativePath": "api/Siparis/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Intern_Project.Models.Siparis",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.SiparisController",
+    "Method": "PutDurum",
+    "RelativePath": "api/Siparis/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "durum",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.SiparisController",
+    "Method": "GuncelleSiparisDurumu",
+    "RelativePath": "api/Siparis/{id}/durum",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "yeniDurum",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.StokController",
+    "Method": "GetStoklar",
+    "RelativePath": "api/Stok",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Intern_Project.Models.StokYonetimi, Intern_Project, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.StokController",
+    "Method": "PostStok",
+    "RelativePath": "api/Stok",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stok",
+        "Type": "Intern_Project.Models.StokYonetimi",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Intern_Project.Models.StokYonetimi",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.StokController",
+    "Method": "GetStok",
+    "RelativePath": "api/Stok/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Intern_Project.Models.StokYonetimi",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.StokController",
+    "Method": "PutStok",
+    "RelativePath": "api/Stok/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "stok",
+        "Type": "Intern_Project.Models.StokYonetimi",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Intern_Project.Controllers.StokController",
+    "Method": "DeleteStok",
+    "RelativePath": "api/Stok/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

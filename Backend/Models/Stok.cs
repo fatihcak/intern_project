@@ -1,11 +1,18 @@
-﻿namespace Intern_Project.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+
+namespace Intern_Project.Models
 {
-    public class Stok
+    public class StokYonetimi
     {
+        [Key]
+        [JsonIgnore]
         public int Id { get; set; }
-        public string Isim { get; set; }
-       
-        public string Miktar { get; set; }
+
+        [Required]
+        public string ParcaAdi { get; set; } = String.Empty;
+        public int Miktar { get; set; }
+        public int EsikMiktar { get; set; }
+        public DateTime GuncellenmeTarihi { get; set; }
     }
-    
 }

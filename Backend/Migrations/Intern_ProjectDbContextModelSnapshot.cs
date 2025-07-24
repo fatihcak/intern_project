@@ -17,6 +17,38 @@ namespace Intern_Project.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.7");
 
+            modelBuilder.Entity("Intern_Project.Models.Bildirim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Durum")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("EsikMiktar")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Mesaj")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Miktar")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ParcaAdi")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bildirimler");
+                });
+
             modelBuilder.Entity("Intern_Project.Models.Kategori", b =>
                 {
                     b.Property<int>("Id")
@@ -88,6 +120,81 @@ namespace Intern_Project.Migrations
                     b.ToTable("Parcalar");
                 });
 
+            modelBuilder.Entity("Intern_Project.Models.Siparis", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("KullaniciAdi")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SiparisDurumu")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("SiparisTarihi")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("ToplamTutar")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Siparisler");
+                });
+
+            modelBuilder.Entity("Intern_Project.Models.SiparisUrun", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Adet")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Fiyat")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("SiparisId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UrunAdi")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SiparisId");
+
+                    b.ToTable("SiparisUrunler");
+                });
+
+            modelBuilder.Entity("Intern_Project.Models.StokYonetimi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("EsikMiktar")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("GuncellenmeTarihi")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Miktar")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ParcaAdi")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Stoklar");
+                });
+
             modelBuilder.Entity("Intern_Project.Models.Parca", b =>
                 {
                     b.HasOne("Intern_Project.Models.Kategori", "Kategori")
@@ -97,9 +204,25 @@ namespace Intern_Project.Migrations
                     b.Navigation("Kategori");
                 });
 
+            modelBuilder.Entity("Intern_Project.Models.SiparisUrun", b =>
+                {
+                    b.HasOne("Intern_Project.Models.Siparis", "Siparis")
+                        .WithMany("Urunler")
+                        .HasForeignKey("SiparisId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Siparis");
+                });
+
             modelBuilder.Entity("Intern_Project.Models.Kategori", b =>
                 {
                     b.Navigation("Parcalar");
+                });
+
+            modelBuilder.Entity("Intern_Project.Models.Siparis", b =>
+                {
+                    b.Navigation("Urunler");
                 });
 #pragma warning restore 612, 618
         }
