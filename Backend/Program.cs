@@ -1,10 +1,13 @@
 ﻿using Intern_Project.Data;
-using Microsoft.EntityFrameworkCore;
+using Intern_Project.Interfaces;
+using Intern_Project.Services;
+using Intern_Project.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +20,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IBildirimService, BildirimService>();
+builder.Services.AddScoped<IKullaniciService, KullaniciService>();
+builder.Services.AddScoped<IParcaService, ParcaService>();
+builder.Services.AddControllers();
 
 //JWT config
 builder.Services.AddAuthentication(options =>
